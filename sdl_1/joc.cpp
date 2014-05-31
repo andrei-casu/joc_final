@@ -61,7 +61,7 @@ void joc_c::start()
 				}
 		}
 
-
+        //modificare
 
 		now=SDL_GetTicks();
 		if (now-last<SCREEN_TICKS_PER_FRAME)
