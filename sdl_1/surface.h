@@ -1,11 +1,3 @@
-//
-//  surface.h
-//  sdl_1
-//
-//  Created by Casuneanu Andrei on 20/05/14.
-//  Copyright (c) 2014 Casuneanu Andrei. All rights reserved.
-//
-
 #ifndef sdl_1_surface_h
 #define sdl_1_surface_h
 
@@ -31,7 +23,7 @@ class surface
 	//void handle_e(SDL_Event&);//referinta
 	//getpixel
 	//setpixel
-	
+
 	private:
 	SDL_Surface* sur;
 	SDL_Texture* tex;
@@ -54,7 +46,7 @@ class frames_per_second
 	public:
 	double get_fps();
 	void record();
-	
+
 	private:
 	double fps;
 	int last, now;
@@ -67,9 +59,9 @@ extern frames_per_second FPS;
 /*class sprite_sheet
 {
 	public:
-	
+
 	private:
-	
+
 };*/
 
 #endif

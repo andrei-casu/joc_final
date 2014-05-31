@@ -4,6 +4,7 @@
 #include <fstream>
 #include <stdio.h>
 #include <string>
+
 #include "baza.h"
 #include "surface.h"
 #include "player.h"
@@ -15,7 +16,6 @@ surface test;
 int main(int argc, char* args[])
 {
 	joc.init();
-	joc.start();
+	joc.meniu();
 	return 0;
 }
-//okay, se compileaza deci e bine
