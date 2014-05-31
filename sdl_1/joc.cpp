@@ -11,6 +11,7 @@
 #include <SDL2_ttf/SDL_ttf.h>
 #include <fstream>
 #include <stdio.h>
+#include <cstdlib>
 #include <string>
 #include "baza.h"
 #include "surface.h"
@@ -54,7 +55,7 @@ void joc_c::start()
 				{
 					//o aduc la viata
 					fantoma_neagra[i].set_viata(fantoma_neagra[i].get_viata_max());
-					//fantoma_neagra[i].set_xy(rand()%WINDOW_W, 0);
+					fantoma_neagra[i].set_xy(rand()%WINDOW_W, 0);
 					fantoma_neagra[i].set_alive(true);
 					last_enemy=last;
 					break;
@@ -85,7 +86,7 @@ void joc_c::init()
 
 	font=TTF_OpenFont("lazy.ttf", 28);
 
-	player.set_nr_s(14);
+	player.set_nr_s(8);
 	player.set_dmg(50);
 	player.read("player.png");
 	player.set_xy(200, WINDOW_H-150);
@@ -95,7 +96,7 @@ void joc_c::init()
 	player.set_mana(300);
 	player.set_viata(1200);
 	player.set_radius(25);
-	fantoma_neagra[0].set_nr_s(14);
+	fantoma_neagra[0].set_nr_s(8);
 	fantoma_neagra[0].set_radius(25);
 	fantoma_neagra[0].read("fantoma_neagra.png");
 	//fantoma_neagra[0].set_xy(rand()%WINDOW_W, 0);
