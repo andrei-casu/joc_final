@@ -495,7 +495,7 @@
 	"player.h"
 	"joc.h"
 
-1401564585 c:\users\malina\documents\github\joc_final\sdl_1\joc.h
+1401567122 c:\users\malina\documents\github\joc_final\sdl_1\joc.h
 	<SDL2/SDL.h>
 	<SDL2_image/SDL_image.h>
 	<SDL2_ttf/SDL_ttf.h>

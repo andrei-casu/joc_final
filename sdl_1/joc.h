@@ -12,7 +12,7 @@
 #include "player.h"
 #include "buton.h"
 
-class joc_c//modifiiiiiic
+class joc_c
 {
 	public:
 	friend class proiectil_c;
