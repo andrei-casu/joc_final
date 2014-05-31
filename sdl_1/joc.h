@@ -28,7 +28,7 @@ class joc_c//modifiiiiiic
     // pentru meniu
     buton b_start, b_shop, b_options, b_exit;
     surface meniu_img;
-
+//////
     // pentru joc
 	playerr player;
 	enemy_c fantoma_neagra[50];

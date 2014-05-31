@@ -101,7 +101,7 @@ void joc_c::start()
 				{
 					//o aduc la viata
 					fantoma_neagra[i].set_viata(fantoma_neagra[i].get_viata_max());
-					fantoma_neagra[i].set_xy((rand()-100)%WINDOW_W, 0);
+					fantoma_neagra[i].set_xy((rand())%(WINDOW_W-100), 0);
 					fantoma_neagra[i].set_alive(true);
 					last_enemy=last;
 					break;
