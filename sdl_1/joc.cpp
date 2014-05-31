@@ -1,21 +1,66 @@
-//
-//  joc.cpp
-//  sdl_1
-//
-//  Created by Casuneanu Andrei on 25/05/14.
-//  Copyright (c) 2014 Casuneanu Andrei. All rights reserved.
-//
-
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_ttf/SDL_ttf.h>
-#include <fstream>
 #include <stdio.h>
 #include <string>
+#include <cstdlib>
+#include <fstream>
+
 #include "baza.h"
 #include "surface.h"
 #include "player.h"
 #include "joc.h"
+
+void joc_c::meniu()
+{
+    textcolor={255, 255, 255, 255};
+	int now, last;
+
+    bool quit=false;
+    int next=0;
+
+    int mouse_x, mouse_y;
+    SDL_Event* e_click;
+
+    while(!quit && !next)
+	{
+		last=SDL_GetTicks();
+		while(SDL_PollEvent(&e))
+		{
+			if(e.type==SDL_QUIT)
+			{
+				quit=true;
+			}
+		}
+
+		now=SDL_GetTicks();
+		if (now-last<SCREEN_TICKS_PER_FRAME)
+            SDL_Delay(SCREEN_TICKS_PER_FRAME-(now-last));
+
+        SDL_RenderClear(renderer);
+		meniu_img.render();
+
+		b_start.render();
+        b_shop.render();
+        b_options.render();
+        b_exit.render();
+
+        *e_click  = e;
+        if(e_click->type == SDL_MOUSEBUTTONDOWN)
+        {
+            if (b_start.get_hov()) start();
+            if (b_shop.get_hov()) shop();
+            if (b_options.get_hov()) options();
+            if (b_exit.get_hov()) exit_game();
+        }
+
+		FPS.record();
+		// fps.load_from_text(to_string((int)FPS.get_fps()), textcolor);
+		fps.render();
+		fps.free();
+		SDL_RenderPresent(renderer);
+	}
+}
 
 void joc_c::start()
 {
@@ -72,6 +117,10 @@ void joc_c::start()
 	}
 }
 
+void joc_c::shop() {}
+void joc_c::options() {}
+void joc_c::exit_game() {exit(EXIT_SUCCESS);}
+
 void joc_c::init()
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -108,6 +157,19 @@ void joc_c::init()
 		fantoma_neagra[i]=fantoma_neagra[0];
 		//fantoma_neagra[i].set_xy(0);
 	}
+
+	//pentru meniu
+	b_start.create("START");
+	b_shop.create("SHOP");
+	b_options.create("OPTIONS");
+	b_exit.create("EXIT");
+
+	b_start.set_x(150); b_start.set_y(150);
+	b_shop.set_x(150); b_shop.set_y(250);
+	b_options.set_x(150); b_options.set_y(350);
+	b_exit.set_x(150); b_exit.set_y(450);
+
+	meniu_img.read("meniu.png");
 }
 
 joc_c joc;

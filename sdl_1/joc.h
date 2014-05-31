@@ -1,11 +1,3 @@
-//
-//  joc.h
-//  sdl_1
-//
-//  Created by Casuneanu Andrei on 25/05/14.
-//  Copyright (c) 2014 Casuneanu Andrei. All rights reserved.
-//
-
 #ifndef sdl_1_joc_h
 #define sdl_1_joc_h
 
@@ -18,16 +10,26 @@
 #include "baza.h"
 #include "surface.h"
 #include "player.h"
-
+#include "buton.h"
 
 class joc_c//modifiiiiiic
 {
 	public:
 	friend class proiectil_c;
 	void init();
+	void meniu();
 	void start();
-	
+	void shop();
+	void options();
+	void exit_game();
+
 	private:
+
+    // pentru meniu
+    buton b_start, b_shop, b_options, b_exit;
+    surface meniu_img;
+
+    // pentru joc
 	playerr player;
 	enemy_c fantoma_neagra[50];
 	surface fps;

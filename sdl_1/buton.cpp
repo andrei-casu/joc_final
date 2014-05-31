@@ -2,30 +2,33 @@
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_ttf/SDL_ttf.h>
 #include <string>
+
 #include "baza.h"
 #include "buton.h"
-
-#include <iostream>
 using namespace std;
 
 buton::buton()
 {
     surface = NULL;
     texture = NULL;
+    nume="";
     x=0, y=0;
     w=0, h=0;
-    v=false, click=false;
+    hov=false;
+    v=false;
+    click=false;
 }
 
 buton::~buton()
 {
-    SDL_FreeSurface(surface);
-	SDL_DestroyTexture(texture);
+    free();
 }
 
 void buton::free()
 {
+    SDL_FreeSurface(surface);
     SDL_DestroyTexture (texture);
+    nume="";
     texture = NULL; w = 0; h = 0;
 }
 
@@ -42,70 +45,55 @@ void buton::readf(string path)
 void buton::create(string path)
 {
     free();
-    SDL_Color color; color = { 0, 0, 0 };
-    TTF_Font* font; font = TTF_OpenFont( "lazy.ttf", 28 );
+    color = { 0, 0, 0 };
+    font = TTF_OpenFont( "font.ttf", 72 );
 
     surface = TTF_RenderText_Solid(font, path.c_str(), color);
     texture = SDL_CreateTextureFromSurface(renderer, surface);
-
+    nume+=path;
     w = surface->w;
     h = surface->h;
+
+    hov=false;
 }
 
-void buton::set_x(int val)
+bool buton::hover()
 {
-    x=val;
-}
-void buton::set_y(int val)
-{
-    y=val;
-}
-void buton::set_w(int val)
-{
-    w=val;
-}
-void buton::set_h(int val)
-{
-    h=val;
-}
-void buton::set_v(bool val)
-{
-    v=val;
-}
-void buton::set_click(bool val)
-{
-    click=val;
-}
-
-int buton::get_x()
-{
-    return x;
-}
-int buton::get_y()
-{
-    return y;
-}
-int buton::get_w()
-{
-    return w;
-}
-int buton::get_h()
-{
-    return h;
-}
-bool buton::get_v()
-{
-    return v;
-}
-bool buton::get_click()
-{
-    return click;
+    int mouse_x, mouse_y;
+    SDL_GetMouseState( &mouse_x, &mouse_y );
+    if (x<=mouse_x && mouse_x<=x+w && y<=mouse_y && mouse_y<=y+h) return true;
+    return false;
 }
 
 void buton::render()
 {
+    if (hover() && !hov) {create_hover(); hov=true;}
+    if (!hover() && hov) {create_no_hover(); hov=false;}
+
     SDL_Rect render_q = {x, y, w, h};
     SDL_RenderCopy (renderer, texture, NULL, &render_q);
+}
+
+void buton::create_hover()
+{
+    color = { 255, 255, 255 };
+    font = TTF_OpenFont( "font.ttf", 72 );
+
+    surface = TTF_RenderText_Solid(font, nume.c_str(), color);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+
+    hov=true;
+}
+
+void buton::create_no_hover()
+{
+    color = { 0, 0, 0 };
+    font = TTF_OpenFont( "font.ttf", 72 );
+
+    surface = TTF_RenderText_Solid(font, nume.c_str(), color);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+
+    hov=false;
 }
 
 void buton::on_click()

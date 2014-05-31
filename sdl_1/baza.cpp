@@ -1,17 +1,10 @@
-//
-//  baza.cpp
-//  sdl_1
-//
-//  Created by Casuneanu Andrei on 20/05/14.
-//  Copyright (c) 2014 Casuneanu Andrei. All rights reserved.
-//
+#include <SDL2/SDL.h>
+#include <SDL2_image/SDL_image.h>
+#include <SDL2_ttf/SDL_ttf.h>
 
 #include "baza.h"
 #include "player.h"
 #include "surface.h"
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
-#include <SDL2_ttf/SDL_ttf.h>
 
 SDL_Renderer* renderer;
 SDL_Window* window;
@@ -31,20 +24,20 @@ bool inter(SDL_Surface *unu, int x1, int y1, SDL_Surface *doi, int x2, int y2)
 	Uint32 *p1, *p2;
 	p1=(Uint32 *)unu->pixels;
 	p2=(Uint32 *)doi->pixels;
-	
+
 	int xc1, yc1, xc2, yc2;
-	
+
 	xc1=x1; if (xc1<x2) xc1=x2;
 	yc1=y1; if (yc1<y2) yc1=y2;
-	
+
 	xc2=x1+unu->w;
 	if (xc2>x2+doi->w)
 		xc2=x2+doi->w;
-		
+
 	yc2=y1+unu->h;
 	if (yc2>y2+doi->h)
 		yc2=y2+doi->h;
-	
+
 	int i, j;
 	int a, b;
 	for (i=xc1; i<=xc2; ++i)
@@ -55,7 +48,7 @@ bool inter(SDL_Surface *unu, int x1, int y1, SDL_Surface *doi, int x2, int y2)
 			if (a==b && a && b)
 				return true;
 		}
-	
+
 	//false dac nu se intersecteaza
 	return false;
 }

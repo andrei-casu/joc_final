@@ -1,18 +1,9 @@
-//
-//  baza.h
-//  sdl_1
-//
-//  Created by Casuneanu Andrei on 20/05/14.
-//  Copyright (c) 2014 Casuneanu Andrei. All rights reserved.
-//
-
 #ifndef sdl_1_baza_h
 #define sdl_1_baza_h
 
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_ttf/SDL_ttf.h>
-
 
 extern SDL_Renderer* renderer;
 extern SDL_Window* window;
@@ -26,7 +17,6 @@ Uint32 pixel(SDL_Surface*, int, int);
 
 extern int SCREEN_FPS;
 extern int SCREEN_TICKS_PER_FRAME;
-
 
 extern int WINDOW_W, WINDOW_H;
 //extern SDL_Texture* maint;

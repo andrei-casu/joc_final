@@ -1,15 +1,8 @@
-//
-//  surface.cpp
-//  sdl_1
-//
-//  Created by Casuneanu Andrei on 20/05/14.
-//  Copyright (c) 2014 Casuneanu Andrei. All rights reserved.
-//
-
-#include <iostream>
-#include <fstream>
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
+#include <iostream>
+#include <fstream>
+
 #include "surface.h"
 #include "baza.h"
 using namespace std;
@@ -51,12 +44,12 @@ bool surface::read(string name)
 	SDL_Surface* sur;
 	sur=IMG_Load(name.c_str());
 	tex=SDL_CreateTextureFromSurface(renderer, sur);
-	
+
 	SDL_Rect dim;
 	SDL_GetClipRect(sur, &dim);
 	w=dim.w;
 	h=dim.h;
-	
+
 	if (sur==NULL || tex==NULL) return false;
 	return true;
 }
@@ -64,17 +57,17 @@ bool surface::read(string name)
 bool surface::render()
 {
 	int curent;
-	
+
 	if (mx || my)
 	{
 		curent=SDL_GetTicks();
-		
+
 		if (!inceput) {inceput=curent;last_tick=curent;}
-		
+
 		x+=((curent-last_tick)*mx/1000);
 		y+=((curent-last_tick)*my/1000);
 		last_tick=curent;
-		
+
 		if ((curent-inceput)/1000>=sec)
 		{
 			inceput=0;
@@ -82,7 +75,7 @@ bool surface::render()
 			sec=0;
 		}
 	}
-	
+
 	poz={x, y, w, h};
 	if (poz.w)
 		SDL_RenderCopy(renderer, tex, NULL, &poz);

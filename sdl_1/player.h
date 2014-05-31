@@ -1,19 +1,11 @@
-//
-//  player.h
-//  sdl_1
-//
-//  Created by Casuneanu Andrei on 22/05/14.
-//  Copyright (c) 2014 Casuneanu Andrei. All rights reserved.
-//
-
 #ifndef sdl_1_player_h
 #define sdl_1_player_h
 
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
-#include "baza.h"
 #include <cstring>
 #include <fstream>
+#include "baza.h"
 using namespace std;
 
 class playerr;
@@ -38,7 +30,7 @@ class proiectil_c
 	bool get_bun() {return bun;}
 	void set_radius(int x) {radius=x;}
 	int get_radius() {return radius;}
-	
+
 	private:
 	SDL_Surface* sur;
 	SDL_Texture* tex;
@@ -78,7 +70,7 @@ class enemy_c
 	void set_alive(bool a) {alive=a;}
 	void set_radius(int x) {radius=x;}
 	int get_radius() {return radius;}
-	
+
 	private:
 	proiectil_c atac;
 	SDL_Surface* sur;
@@ -124,7 +116,7 @@ class playerr
 	int get_dmg() {return dmg;}
 	void set_radius(int x) {radius=x;}
 	int get_radius() {return radius;}
-	
+
 	private:
 	proiectil_c atac[12];
 	SDL_Surface* sur;
