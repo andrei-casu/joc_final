@@ -20,7 +20,6 @@ void joc_c::meniu()
     bool quit=false;
     int next=0;
 
-    //int mouse_x, mouse_y;
     SDL_Event* e_click;
 
     while(!quit && !next)

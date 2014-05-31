@@ -464,7 +464,7 @@
 	<fstream>
 	"baza.h"
 
-1401564284 c:\users\malina\documents\github\joc_final\sdl_1\surface.h
+1401566485 c:\users\malina\documents\github\joc_final\sdl_1\surface.h
 	<SDL2/SDL.h>
 	<SDL2_image/SDL_image.h>
 	<cstring>
