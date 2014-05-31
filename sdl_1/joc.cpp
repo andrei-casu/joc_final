@@ -61,9 +61,6 @@ void joc_c::start()
 				}
 		}
 
-        //modificare
-		//modificarea mea
-
 		now=SDL_GetTicks();
 		if (now-last<SCREEN_TICKS_PER_FRAME)
 			SDL_Delay(SCREEN_TICKS_PER_FRAME-(now-last));

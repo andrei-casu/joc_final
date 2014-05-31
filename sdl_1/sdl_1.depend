@@ -444,3 +444,120 @@
 	"surface.h"
 	"baza.h"
 
+1401560426 source:c:\users\malina\documents\github\joc_final\sdl_1\baza.cpp
+	"baza.h"
+	"player.h"
+	"surface.h"
+	<SDL2/SDL.h>
+	<SDL2_image/SDL_image.h>
+	<SDL2_ttf/SDL_ttf.h>
+
+1401560426 c:\users\malina\documents\github\joc_final\sdl_1\baza.h
+	<SDL2/SDL.h>
+	<SDL2_image/SDL_image.h>
+	<SDL2_ttf/SDL_ttf.h>
+
+1401560426 c:\users\malina\documents\github\joc_final\sdl_1\player.h
+	<SDL2/SDL.h>
+	<SDL2_image/SDL_image.h>
+	"baza.h"
+	<cstring>
+	<fstream>
+
+1401560426 c:\users\malina\documents\github\joc_final\sdl_1\surface.h
+	<SDL2/SDL.h>
+	<SDL2_image/SDL_image.h>
+	<cstring>
+	<fstream>
+
+1401560426 source:c:\users\malina\documents\github\joc_final\sdl_1\buton.cpp
+	<SDL2/SDL.h>
+	<SDL2_image/SDL_image.h>
+	<SDL2_ttf/SDL_ttf.h>
+	<string>
+	"baza.h"
+	"buton.h"
+	<iostream>
+
+1401560426 c:\users\malina\documents\github\joc_final\sdl_1\buton.h
+	<SDL2/SDL.h>
+	<SDL2_image/SDL_image.h>
+	<string>
+
+1401560426 source:c:\users\malina\documents\github\joc_final\sdl_1\main.cpp
+	<SDL2/SDL.h>
+	<SDL2_image/SDL_image.h>
+	<SDL2_ttf/SDL_ttf.h>
+	<fstream>
+	<stdio.h>
+	<string>
+	"baza.h"
+	"surface.h"
+	"player.h"
+	"joc.h"
+
+1401560426 c:\users\malina\documents\github\joc_final\sdl_1\joc.h
+	<SDL2/SDL.h>
+	<SDL2_image/SDL_image.h>
+	<SDL2_ttf/SDL_ttf.h>
+	<fstream>
+	<stdio.h>
+	<string>
+	"baza.h"
+	"surface.h"
+	"player.h"
+
+1401560426 source:c:\users\malina\documents\github\joc_final\sdl_1\player.cpp
+	"player.h"
+	<SDL2/SDL.h>
+	<SDL2_image/SDL_image.h>
+	<cstring>
+	<fstream>
+	<cmath>
+	"baza.h"
+	"joc.h"
+	"surface.h"
+
+1401560426 source:c:\users\malina\documents\github\joc_final\sdl_1\skills.cpp
+	<SDL2/SDL.h>
+	<SDL2_image/SDL_image.h>
+	<SDL2_ttf/SDL_ttf.h>
+	<fstream>
+	<stdio.h>
+	<string>
+	"baza.h"
+	"surface.h"
+	"player.h"
+	"skills.h"
+
+1401560426 c:\users\malina\documents\github\joc_final\sdl_1\skills.h
+	<SDL2/SDL.h>
+	<SDL2_image/SDL_image.h>
+	<SDL2_ttf/SDL_ttf.h>
+	<fstream>
+	<stdio.h>
+	<string>
+	"baza.h"
+	"surface.h"
+	"player.h"
+
+1401560426 source:c:\users\malina\documents\github\joc_final\sdl_1\surface.cpp
+	<iostream>
+	<fstream>
+	<SDL2/SDL.h>
+	<SDL2_image/SDL_image.h>
+	"surface.h"
+	"baza.h"
+
+1401561480 source:c:\users\malina\documents\github\joc_final\sdl_1\joc.cpp
+	<SDL2/SDL.h>
+	<SDL2_image/SDL_image.h>
+	<SDL2_ttf/SDL_ttf.h>
+	<fstream>
+	<stdio.h>
+	<string>
+	"baza.h"
+	"surface.h"
+	"player.h"
+	"joc.h"
+
