@@ -20,7 +20,7 @@ void joc_c::meniu()
     bool quit=false;
     int next=0;
 
-    int mouse_x, mouse_y;
+    //int mouse_x, mouse_y;
     SDL_Event* e_click;
 
     while(!quit && !next)
@@ -31,6 +31,7 @@ void joc_c::meniu()
 			if(e.type==SDL_QUIT)
 			{
 				quit=true;
+				exit(EXIT_SUCCESS);
 			}
 		}
 
@@ -46,7 +47,7 @@ void joc_c::meniu()
         b_options.render();
         b_exit.render();
 
-        *e_click  = e;
+        e_click=&e;
         if(e_click->type == SDL_MOUSEBUTTONDOWN)
         {
             if (b_start.get_hov()) start();
@@ -78,6 +79,7 @@ void joc_c::start()
 			if(e.type==SDL_QUIT)
 			{
 				quit=true;
+				exit(EXIT_SUCCESS);
 			}
 		}
 		SDL_SetRenderDrawColor(renderer, 53, 50, 50, 255);
@@ -171,6 +173,7 @@ void joc_c::init()
 	b_exit.set_x(150); b_exit.set_y(450);
 
 	meniu_img.read("meniu.png");
+	meniu_img.set_wh(WINDOW_W, WINDOW_H);
 }
 
 joc_c joc;

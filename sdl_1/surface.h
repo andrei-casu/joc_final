@@ -15,7 +15,7 @@ class surface
 	void set_xy(int a, int b) {x=a; y=b;}
 	void set_misc(int a, int b) {mx=a; my=b;}
 	void set_sec(int x) {sec=x;}
-	void set_wh(int width,int height) {wu=width; hu=height;}
+	void set_wh(int width,int height) {w=width; h=height;}
 	//de ce sunt definite aici? pentru ca se fac automat inline si asa economisesc mult timp :D
 	bool render();
 	void load_from_text(string, SDL_Color);
