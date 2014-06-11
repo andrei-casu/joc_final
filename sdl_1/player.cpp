@@ -6,9 +6,12 @@
 
 #include "baza.h"
 #include "joc.h"
+#include "skills.h"
 #include "surface.h"
 #include "player.h"
 using namespace std;
+
+
 
 void proiectil_c::read(string nume)
 {
@@ -76,17 +79,45 @@ void proiectil_c::render()
 	///////verific daca a lovit ceva
 	int i;
 	int x_tinta, y_tinta;
+	int xa, ya;
 	if (bun==true)
 	{
 		for (i=0; i<50; ++i)
-			if (joc.fantoma_neagra[i].get_viata())
+			if (fantoma_neagra[i].get_viata())
 			{
-				joc.fantoma_neagra[i].get_xy(x_tinta, y_tinta);
+				fantoma_neagra[i].get_xmym(x_tinta, y_tinta);
+				fantoma_neagra[i].get_xy(xa, ya);
 				//if (inter(joc.fantoma_neagra[i].sur_c, x_tinta, y_tinta, sur_c, x, y))
 				//if (mx<10 && my<10)
-				if (intersectie(x, y, radius, x_tinta, y_tinta, joc.fantoma_neagra[i].get_radius()))
+				if (intersectie(x, y, radius, xa+x_tinta, ya+y_tinta, fantoma_neagra[i].get_radius()))
 				{
-					joc.fantoma_neagra[i].set_viata(joc.fantoma_neagra[i].get_viata()-dmg);
+					fantoma_neagra[i].set_viata(fantoma_neagra[i].get_viata()-dmg);
+					active=false;
+				}
+			}
+		for (i=0; i<50; ++i)
+			if (schelet[i].get_viata())
+			{
+				schelet[i].get_xmym(x_tinta, y_tinta);
+				schelet[i].get_xy(xa, ya);
+				//if (inter(joc.fantoma_neagra[i].sur_c, x_tinta, y_tinta, sur_c, x, y))
+				//if (mx<10 && my<10)
+				if (intersectie(x, y, radius, xa+x_tinta, ya+y_tinta, schelet[i].get_radius()))
+				{
+					schelet[i].set_viata(schelet[i].get_viata()-dmg);
+					active=false;
+				}
+			}
+		for (i=0; i<50; ++i)
+			if (liliac[i].get_viata())
+			{
+				liliac[i].get_xmym(x_tinta, y_tinta);
+				liliac[i].get_xy(xa, ya);
+				//if (inter(joc.fantoma_neagra[i].sur_c, x_tinta, y_tinta, sur_c, x, y))
+				//if (mx<10 && my<10)
+				if (intersectie(x, y, radius, xa+x_tinta, ya+y_tinta, liliac[i].get_radius()))
+				{
+					liliac[i].set_viata(liliac[i].get_viata()-dmg);
 					active=false;
 				}
 			}
@@ -232,7 +263,7 @@ void enemy_c::render()
 		atac.render();
 
 	ticks=SDL_GetTicks();
-	int dd=viteza*((double)ticks-start_ticks)/100;
+	dd+=viteza*((double)ticks-start_ticks)/200;
 	int dx=x-x2, dy=y-y2;
 	if (!dx) dx=1; if (!dy) dy=1;
 	int d=sqrt((double)(dx*dx+dy*dy));
@@ -273,4 +304,11 @@ void enemy_c::render()
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 	++frames;
 	if (frames>2000000) frames-=1800000;
+	
+	
+	if (dd<1)
+	{
+		dd+=viteza*((double)ticks-start_ticks)/200;
+	}
+	else dd=0;
 }

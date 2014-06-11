@@ -70,6 +70,7 @@ class enemy_c
 	void set_alive(bool a) {alive=a;}
 	void set_radius(int x) {radius=x;}
 	int get_radius() {return radius;}
+	void get_xmym(int &a, int &b) {a=xm; b=ym;}
 
 	private:
 	proiectil_c atac;
@@ -91,6 +92,7 @@ class enemy_c
 	int start_ticks, ticks;
 	int last_space;//ultim-ul hit
 	bool alive;
+	int dd;
 };
 
 class playerr

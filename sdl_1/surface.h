@@ -10,6 +10,7 @@ using namespace std;
 class surface
 {
 	public:
+	friend class joc_c;
 	~surface();
 	bool read(string);
 	void set_xy(int a, int b) {x=a; y=b;}
@@ -20,6 +21,11 @@ class surface
 	bool render();
 	void load_from_text(string, SDL_Color);
 	void free();
+	
+	int getw() {return w;}
+	int geth() {return h;}
+	int getx() {return x;}
+	int gety() {return y;}
 	//void handle_e(SDL_Event&);//referinta
 	//getpixel
 	//setpixel

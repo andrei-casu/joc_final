@@ -23,7 +23,8 @@ class buton
         void set_v(bool val) {v=val;};
         void set_click(bool val) {click=val;};
         void set_hov(bool val) {hov=val;};
-
+	void select();
+	void unselect();
         int get_x() {return x;};
         int get_y() {return y;};
         int get_w() {return w;};
@@ -45,6 +46,8 @@ class buton
         int x, y;
         int w, h;
         bool v, click, hov;
+	int a=100, b=255;
+	int selected;
         string nume;
 
         SDL_Color color;

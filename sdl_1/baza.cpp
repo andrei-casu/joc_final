@@ -9,6 +9,7 @@
 SDL_Renderer* renderer;
 SDL_Window* window;
 TTF_Font* font;
+TTF_Font* font_normal;
 //SDL_Texture* maint;
 //SDL_Rect piece[14];
 //SDL_Rect per[4];
@@ -29,7 +30,7 @@ bool inter(SDL_Surface *unu, int x1, int y1, SDL_Surface *doi, int x2, int y2)
 
 	xc1=x1; if (xc1<x2) xc1=x2;
 	yc1=y1; if (yc1<y2) yc1=y2;
-
+	
 	xc2=x1+unu->w;
 	if (xc2>x2+doi->w)
 		xc2=x2+doi->w;

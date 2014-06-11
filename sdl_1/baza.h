@@ -8,6 +8,7 @@
 extern SDL_Renderer* renderer;
 extern SDL_Window* window;
 extern TTF_Font* font;
+extern TTF_Font* font_normal;
 //extern SDL_Rect piece[14];
 //extern SDL_Rect per[4];
 

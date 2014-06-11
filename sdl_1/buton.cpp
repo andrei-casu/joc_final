@@ -7,6 +7,20 @@
 #include "buton.h"
 using namespace std;
 
+
+void buton::select()
+{
+	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+	SDL_SetTextureAlphaMod(texture, (Uint8)a);
+}
+
+void buton::unselect()
+{
+	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+	SDL_SetTextureAlphaMod(texture, (Uint8)b);
+}
+
+
 buton::buton()
 {
     surface = NULL;
@@ -38,6 +52,7 @@ void buton::readf(string path)
 
     surface = IMG_Load(path.c_str());
     texture = SDL_CreateTextureFromSurface (renderer, surface);
+	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
     w = surface->w;
     h = surface->h;
 }
@@ -49,8 +64,10 @@ void buton::create(string path)
     font = TTF_OpenFont( "font.ttf", 72 );
 
     surface = TTF_RenderText_Solid(font, path.c_str(), color);
+	SDL_SetColorKey(surface, SDL_TRUE, SDL_MapRGB(surface->format, 0, 0xFF, 0xFF));
     texture = SDL_CreateTextureFromSurface(renderer, surface);
     nume+=path;
+	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
     w = surface->w;
     h = surface->h;
 
@@ -67,8 +84,8 @@ bool buton::hover()
 
 void buton::render()
 {
-    if (hover() && !hov) {create_hover(); hov=true;}
-    if (!hover() && hov) {create_no_hover(); hov=false;}
+    if (hover() && !hov) {hov=true; select();}
+    if (!hover() && hov) {hov=false; unselect();}
 
     SDL_Rect render_q = {x, y, w, h};
     SDL_RenderCopy (renderer, texture, NULL, &render_q);
